@@ -34,9 +34,10 @@ function create() {
     //game.add.text(32, 60, 'Frac: ' + game.rnd.frac(), style);
     //game.add.text(32, 90, 'Real: ' + game.rnd.real(), style);
     //game.add.text(32, 120, 'Integer in Range (100-200): ' + game.rnd.integerInRange(100, 200), style);
-    game.add.text(32, 30, random_npc_names[game.rnd.integerInRange(0,random_npc_names.length)], style);
-    game.add.text(32, 45, random_npc_class[game.rnd.integerInRange(0,random_npc_class.length)], style);
-    game.add.text(32, 60, random_npc_race[game.rnd.integerInRange(0,random_npc_race.length)], style);
+    game.add.text(32, 30, random_npc_names[game.rnd.integerInRange(0,random_npc_names.length-1)], style);
+    game.add.text(32, 45, random_npc_class[game.rnd.integerInRange(0,random_npc_class.length-1)], style);
+    game.add.text(32, 60, random_npc_race[game.rnd.integerInRange(0,random_npc_race.length-1)], style);
+
 }
 
     </script>
