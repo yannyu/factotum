@@ -8,4 +8,6 @@ function drawBoard() {
     items = Array();
     items[0] = new item();
 
+    
+
 }
