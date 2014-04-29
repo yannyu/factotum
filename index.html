@@ -14,6 +14,10 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {create: cre
 random_npc_names = ["Andy", "Bobby", "Christina", "Dennis", "Elise", "Frances"];
 random_npc_class = ["Fighter", "Spellcaster", "Healer", "Runner"];
 random_npc_race = ["Human", "Elf", "Orc", "Goblin", "Dwarf"];
+
+random_item_types = ["Axe", "Balloon", "Claw Hammer", "Dao", "Epee", "Fuschina", "Gauche"];
+random_item_prefixes = ["Shiny", "Dull", "Stupid", "Clever", "Useless", "Utile"];
+random_item_suffixes = ["of Fire", "of Ice", "of Bludgeoning", "of Anger", "of the Elements"]
 var counter = 0
 
 function npc() {
@@ -29,6 +33,21 @@ npc.prototype.randomize = function() {
     this.class = random_npc_class[game.rnd.integerInRange(0,random_npc_class.length-1)];
     this.race = random_npc_race[game.rnd.integerInRange(0,random_npc_race.length-1)];
 }
+
+function item() {
+    this.type = "default_type"
+    this.prefix = "default_prefix"
+    this.suffix = "default_suffix"
+}
+item.prototype.getInfo = function() {
+    return this.prefix+' '+this.type+' '+this.suffix;
+}
+item.prototype.randomize = function() {
+    this.type = random_item_types[game.rnd.integerInRange(0,random_item_types.length-1)];
+    this.prefix = random_item_prefixes[game.rnd.integerInRange(0,random_item_prefixes.length-1)];
+    this.suffix = random_item_suffixes[game.rnd.integerInRange(0,random_item_suffixes.length-1)];
+}
+
 
 function create() {
 
@@ -46,14 +65,20 @@ function create() {
     //game.add.text(32, 30, random_npc_names[game.rnd.integerInRange(0,random_npc_names.length)], style);
     textDisplays = Array();
     textDisplays[0] = game.add.text(32, 30, 'None');
+    textDisplays[1] = game.add.text(32, 150, 'None');
     npcs = Array();
     npcs[0] = new npc();
+
+    items = Array();
+    items[0] = new item();
 }
 
 function update() {
     if(counter >= 50) {
         npcs[0].randomize();
         textDisplays[0].setText(npcs[0].getInfo());
+        items[0].randomize();
+        textDisplays[1].setText(items[0].getInfo());
         counter = 0;
     } else {
         counter++;
