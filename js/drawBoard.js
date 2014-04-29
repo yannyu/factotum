@@ -1,3 +1,5 @@
+
+
 function drawBoard() {
 	textDisplays = Array();
     textDisplays[0] = game.add.text(32, 30, 'None');
@@ -8,6 +10,6 @@ function drawBoard() {
     items = Array();
     items[0] = new item();
 
-    
+
 
 }
