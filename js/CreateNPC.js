@@ -21,3 +21,11 @@ function npc() {
     this.class = "default_class";
     this.race = "default_race";
 }
+
+
+function newCharacter() {
+	npcs[0].randomize();
+    textDisplays[0].setText(npcs[0].getInfo());
+    items[0].randomize();
+    textDisplays[1].setText(items[0].getInfo());
+}
