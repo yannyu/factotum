@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hello phaser!</title>
+        <script src="phaser.min.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    window.onload = function() {
+        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+        var textDisplays;
+        var npcs;
+        var counter;
+
+        random_npc_names = ["Andy", "Bobby", "Christina", "Dennis", "Elise", "Frances"];
+        random_npc_class = ["Fighter", "Spellcaster", "Healer", "Runner"];
+        random_npc_race = ["Human", "Elf", "Orc", "Goblin", "Dwarf"];
+        function npc () {
+            this.name = "bobby";
+            this.class = "none" ;
+            this.race = "none";
+        }
+        npc.prototype.getInfo = function() {
+            return this.name+'\n'+this.class+'\n'+this.race;
+        }
+        npc.prototype.randomize = function() {
+            this.name = random_npc_names[game.rnd.integerInRange(0,random_npc_names.length)];
+            this.class = random_npc_class[game.rnd.integerInRange(0,random_npc_class.length)];
+            this.race = random_npc_race[game.rnd.integerInRange(0,random_npc_race.length)];
+        }
+
+        function preload () {
+            game.load.image('logo', 'phaser.png');
+            game.load.image('sky', 'assets/skies/sky1.png');
+        }
+
+        function create () {
+            game.add.sprite(0, 0, 'sky');
+            textDisplays = Array();
+            textDisplays[0] = game.add.text(32, 32, "None", {font: '32px arial', fill: '#FFF' });
+            textDisplays[1] = game.add.text(256, 32, "None", {font: '32px arial', fill: '#FFF' });
+            npcs = Array();
+            npcs[0] = new npc();
+            npcs[1] = new npc();
+            counter = 0;
+        }
+
+        function update () {
+            if(counter >= 120) {
+                npcs[0].randomize();
+                npcs[1].randomize();
+                textDisplays[0].content = npcs[0].getInfo();
+                textDisplays[1].content = npcs[1].getInfo();
+
+                counter = 0;
+            } else {
+                counter++;
+            }
+        }
+
+
+
+
+    };
+
+    </script>
+
+    </body>
+</html>
