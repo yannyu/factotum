@@ -9,62 +9,35 @@
 
     <script type="text/javascript">
 
-    window.onload = function() {
-        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-        var textDisplays;
-        var npcs;
-        var counter;
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {create: create });
 
-        random_npc_names = ["Andy", "Bobby", "Christina", "Dennis", "Elise", "Frances"];
-        random_npc_class = ["Fighter", "Spellcaster", "Healer", "Runner"];
-        random_npc_race = ["Human", "Elf", "Orc", "Goblin", "Dwarf"];
-        function npc () {
-            this.name = "bobby";
-            this.class = "none" ;
-            this.race = "none";
-        }
-        npc.prototype.getInfo = function() {
-            return this.name+'\n'+this.class+'\n'+this.race;
-        }
-        npc.prototype.randomize = function() {
-            this.name = random_npc_names[game.rnd.integerInRange(0,random_npc_names.length)];
-            this.class = random_npc_class[game.rnd.integerInRange(0,random_npc_class.length)];
-            this.race = random_npc_race[game.rnd.integerInRange(0,random_npc_race.length)];
-        }
+random_npc_names = ["Andy", "Bobby", "Christina", "Dennis", "Elise", "Frances"];
+random_npc_class = ["Fighter", "Spellcaster", "Healer", "Runner"];
+random_npc_race = ["Human", "Elf", "Orc", "Goblin", "Dwarf"];
 
-        function preload () {
-            game.load.image('logo', 'phaser.png');
-            game.load.image('sky', 'assets/skies/sky1.png');
-        }
+function npc() {
+    this.name = "default_name"
+    this.class = "default_class"
+    this.race = "default_race"
+}
+npc.prototype.getInfo = function() {
+    return this.name+'\n'+this.class+'\n'+this.race;
+}
 
-        function create () {
-            game.add.sprite(0, 0, 'sky');
-            textDisplays = Array();
-            textDisplays[0] = game.add.text(32, 32, "None", {font: '32px arial', fill: '#FFF' });
-            textDisplays[1] = game.add.text(256, 32, "None", {font: '32px arial', fill: '#FFF' });
-            npcs = Array();
-            npcs[0] = new npc();
-            npcs[1] = new npc();
-            counter = 0;
-        }
+function create() {
 
-        function update () {
-            if(counter >= 120) {
-                npcs[0].randomize();
-                npcs[1].randomize();
-                textDisplays[0].content = npcs[0].getInfo();
-                textDisplays[1].content = npcs[1].getInfo();
+    game.stage.backgroundColor = '#454645';
 
-                counter = 0;
-            } else {
-                counter++;
-            }
-        }
+    var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
 
-
-
-
-    };
+    //game.add.text(32, 30, 'Integer: ' + game.rnd.integer(), style);
+    //game.add.text(32, 60, 'Frac: ' + game.rnd.frac(), style);
+    //game.add.text(32, 90, 'Real: ' + game.rnd.real(), style);
+    //game.add.text(32, 120, 'Integer in Range (100-200): ' + game.rnd.integerInRange(100, 200), style);
+    game.add.text(32, 30, random_npc_names[game.rnd.integerInRange(0,random_npc_names.length)], style);
+    game.add.text(32, 45, random_npc_class[game.rnd.integerInRange(0,random_npc_class.length)], style);
+    game.add.text(32, 60, random_npc_race[game.rnd.integerInRange(0,random_npc_race.length)], style);
+}
 
     </script>
 
