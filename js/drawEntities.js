@@ -1,4 +1,4 @@
-function drawCharacter(){
+function drawEntities(){
 	textDisplays = Array();
     textDisplays[0] = game.add.text(32, 30, 'None');
     textDisplays[1] = game.add.text(32, 150, 'None');

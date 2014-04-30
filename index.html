@@ -7,8 +7,10 @@
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="js/createNPC.js"></script>
         <script type="text/javascript" src="js/CreateItem.js"></script>
-        <script type="text/javascript" src="js/drawBoard.js"></script>
-        <script type="text/javascript" src="js/drawCharacter.js"></script>
+        <script type="text/javascript" src="js/drawGameBoard.js"></script>
+        <script type="text/javascript" src="js/drawEntities.js"></script>
+        <script type="text/javascript" src="js/drawShop.js"></script>
+        <script type="text/javascript" src="models/Shop.js"></script>
     </head>
     <body>
 
@@ -41,7 +43,7 @@
             //game.add.text(32, 45, random_npc_class[game.rnd.integerInRange(0,random_npc_class.length)], style);
             //game.add.text(32, 60, random_npc_race[game.rnd.integerInRange(0,random_npc_race.length)], style);
             //game.add.text(32, 30, random_npc_names[game.rnd.integerInRange(0,random_npc_names.length)], style);
-            drawBoard();
+            drawGameBoard();
         }
 
         function update() {
