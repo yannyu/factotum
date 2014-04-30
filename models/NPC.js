@@ -21,16 +21,3 @@ function npc() {
     this.class = "default_class";
     this.race = "default_race";
 }
-
-
-function newCharacter() {
-	npcs[0].randomize();
-    textDisplays[0].setText(npcs[0].getInfo());
-    items[0].randomize();
-    textDisplays[1].setText(items[0].getInfo());
-    temporary_item = new item();
-    temporary_item.randomize();
-    //console.log(temporary_item.getInfo());
-    playerShop.replaceItem(temporary_item);
-    textDisplays[2].setText('Item in shop: ' + playerShop.getItemAtIndex(0));
-}
