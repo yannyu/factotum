@@ -1,1 +1,1 @@
-Test and shit
+This will be the readme for Factotum once we have something worth reading about.

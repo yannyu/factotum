@@ -6,5 +6,5 @@ function drawEntities(){
     npcs[0] = new npc();
 
     items = Array();
-    items[0] = new item();
+    items[0] = new Item();
 }

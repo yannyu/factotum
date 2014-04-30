@@ -17,7 +17,7 @@ Shop.prototype = {
 	},
 	
 	populate : function() {
-		temp_item = new item();
+		temp_item = new Item();
 		temp_item.randomize();
 		this.insertItem(temp_item);
 	},
