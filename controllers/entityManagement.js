@@ -7,8 +7,10 @@ function transferItem() {
 function newCharacter() {
 	npcs[0].randomize();
     textDisplays[0].setText(npcs[0].getInfo());
-    items[0].randomize();
-    textDisplays[1].setText(items[0].getInfo());
+    playerShop.items[0].randomize();
+    
+    textDisplays[1].setText(playerShop.items[0].getInfo());
+    updateShop();
     //temporary_item = new item();
     //temporary_item.randomize();
     //console.log(temporary_item.getInfo());

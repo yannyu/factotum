@@ -25,10 +25,10 @@ Resource.prototype = {
 				this.name = woodNames[game.rnd.integerInRange(0, woodNames.length-1)];
 				break;
 			case "Ore":
-				this.name = woodNames[game.rnd.integerInRange(0, woodNames.length-1)];
+				this.name = oreNames[game.rnd.integerInRange(0, oreNames.length-1)];
 				break;
 			case "Plant":
-				this.name = woodNames[game.rnd.integerInRange(0, woodNames.length-1)];
+				this.name = plantNames[game.rnd.integerInRange(0, plantNames.length-1)];
 				break;
 			default:
 				this.name = "Your naming funcition is broken: Check Resource.js: create";

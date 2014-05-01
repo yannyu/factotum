@@ -5,6 +5,6 @@ function drawEntities(){
     npcs = Array();
     npcs[0] = new Npc();
 
-    items = Array();
-    items[0] = new Item();
+    entityItems = Array();
+    entityItems[0] = new Item();
 }

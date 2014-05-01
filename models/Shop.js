@@ -1,22 +1,28 @@
 Shop = function() {
 
 	//these are bad practicies, clean later
-	var items = new Array();
-	this.itemCapacity = 10;
+	items = null;
+	itemCapacity = null;
 
 };
 
 Shop.prototype = {
 
+	create : function() {
+		this.items = new Array();
+		this.itemCapacity = 10;
+	},
+
 	getItemAtIndex : function(itemNumber) {
-		return items[itemNumber].getInfo();
+		return this.items[itemNumber].getInfo();
 	},
 
 	insertItem : function(item) {
-		items.push(item);
+		this.items.push(item);
 	},
 	
 	populate : function() {
+		alert(this.items.length);
 		temp_item = new Item();
 		temp_item.randomize();
 		this.insertItem(temp_item);
@@ -26,8 +32,12 @@ Shop.prototype = {
 		this.items = new Array();
 	},
 
-	replaceItem : function (new_item) {
-		items[0] = new_item;
+	replaceItem : function (new_item, position) {
+		this.items[position] = new_item;
+	},
+
+	getItemLength : function() {
+		return this.items.length;
 	}
 
 
