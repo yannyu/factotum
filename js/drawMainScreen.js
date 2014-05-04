@@ -10,7 +10,8 @@ function drawMainScreen() {
 
 
 function OpenMap() {
-		//drawMapButton();
+	//drawMapButton();
+	game.state.start('MapScreenStateName');
 }
 
 function OpenInventoryScreen() {
@@ -19,9 +20,10 @@ function OpenInventoryScreen() {
 	//console.log(game.drawMainScreen.MapButton());
 	//accessInventory();
 	//drawNPCButton();
-	game.state.start('InventoryScreenStateThing');
+	game.state.start('InventoryScreenStateName');
 }
 
 function OpenNPCScreen() {
 	//drawNPCButton();
+	game.state.start('NPCScreenStateName');
 }

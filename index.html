@@ -36,7 +36,7 @@
             game.load.spritesheet('NPCButton', 'assets/buttons/NPCButton.jpg', 70,120);
             game.load.spritesheet('InventoryButton', 'assets/buttons/InventoryButton.jpg', 70, 120);
 
-            game.state.start('MainScreenStateThing');
+            game.state.start('MainScreenStateName');
         }
 
         function create() {
@@ -59,7 +59,7 @@
                 drawMainScreen();
             }
         }
-        game.state.add('MainScreenStateThing', mainScreenState);
+        game.state.add('MainScreenStateName', mainScreenState);
 
         var inventoryScreenState = {
             create: function() {
@@ -68,7 +68,25 @@
                 accessInventory();
             }
         }
-        game.state.add('InventoryScreenStateThing', inventoryScreenState);
+        game.state.add('InventoryScreenStateName', inventoryScreenState);
+
+        var mapScreenState = {
+            create: function() {
+                game.stage.backgroundColor = '#454645';
+                var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
+                //some function
+            }
+        }
+        game.state.add('MapScreenStateName', mapScreenState);
+
+        var NPCScreenState = {
+            create: function() {
+                game.stage.backgroundColor = '#454645';
+                var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
+                //some function
+            }
+        }
+        game.state.add('NPCScreenStateName', NPCScreenState);
 
 
         </script>
