@@ -7,10 +7,11 @@
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="models/NPC.js"></script>
         <script type="text/javascript" src="models/Item.js"></script>
-        <script type="text/javascript" src="js/drawGameBoard.js"></script>
+        <script type="text/javascript" src="js/drawMainScreen.js"></script>
         <script type="text/javascript" src="js/drawShop.js"></script>
         <script type="text/javascript" src="js/drawEntities.js"></script>
         <script type="text/javascript" src="js/drawButtons.js"></script>
+        <script type="text/javascript" src="js/drawInventoryButton.js"></script>
         <script type="text/javascript" src="models/Shop.js"></script>
         <script type="text/javascript" src="models/Resource.js"></script>
         <script type="text/javascript" src="controllers/entityManagement.js"></script>
@@ -34,7 +35,7 @@
             game.stage.backgroundColor = '#454645';
 
             var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
-            drawGameBoard();
+            drawMainScreen();
         }
 
         function update() {
