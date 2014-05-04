@@ -1,6 +1,6 @@
 function drawMainScreen() {
 
 	//drawMapButton();
-	drawInventoryButton();
+	accessInventory();
 	//drawNPCButton();
 }
