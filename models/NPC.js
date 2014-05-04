@@ -26,5 +26,4 @@ Npc.prototype = {
         this.class = random_npc_class[game.rnd.integerInRange(0,random_npc_class.length-1)];
         this.race = random_npc_race[game.rnd.integerInRange(0,random_npc_race.length-1)];
     }
-
 };

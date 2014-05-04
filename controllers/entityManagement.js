@@ -1,20 +1,14 @@
 function transferItem() {
 	//console.log('transfer?');
-    playerShop.replaceItem(entityItems[0],0);
-    textDisplays[2].setText('Item in shop: ' + playerShop.getItemAtIndex(0));
-    console.log(playerShop.getItemAtIndex(0));
+    global_playerShop.replaceItem(global_entityItems[0],0);
+    global_textDisplays[2].setText('Item in shop: ' + global_playerShop.getItemAtIndex(0));
+    console.log(global_playerShop.getItemAtIndex(0));
 }
 
 function newCharacter() {
-	npcs[0].randomize();
-    textDisplays[0].setText(npcs[0].getInfo());
-    playerShop.items[0].randomize();
+	global_npcs[0].randomize();
+    global_textDisplays[0].setText(global_npcs[0].getInfo());
+    global_playerShop.items[0].randomize();
     
-    textDisplays[1].setText(playerShop.items[0].getInfo());
-    //updateShop();
-    //temporary_item = new item();
-    //temporary_item.randomize();
-    //console.log(temporary_item.getInfo());
-    //playerShop.replaceItem(temporary_item);
-    //textDisplays[2].setText('Item in shop: ' + playerShop.getItemAtIndex(0));
+    global_textDisplays[1].setText(global_playerShop.items[0].getInfo());
 }
