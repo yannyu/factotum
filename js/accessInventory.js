@@ -1,4 +1,4 @@
-function drawInventoryButton() {
+function accessInventory() {
 
 	drawEntities();
 	drawButtons();
