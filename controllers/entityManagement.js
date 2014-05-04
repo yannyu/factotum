@@ -1,7 +1,8 @@
 function transferItem() {
 	//console.log('transfer?');
-    playerShop.replaceItem(items[0]);
+    playerShop.replaceItem(entityItems[0],0);
     textDisplays[2].setText('Item in shop: ' + playerShop.getItemAtIndex(0));
+    console.log(playerShop.getItemAtIndex(0));
 }
 
 function newCharacter() {
@@ -10,7 +11,7 @@ function newCharacter() {
     playerShop.items[0].randomize();
     
     textDisplays[1].setText(playerShop.items[0].getInfo());
-    updateShop();
+    //updateShop();
     //temporary_item = new item();
     //temporary_item.randomize();
     //console.log(temporary_item.getInfo());

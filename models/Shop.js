@@ -1,13 +1,10 @@
 Shop = function() {
-
 	//these are bad practicies, clean later
 	items = null;
 	itemCapacity = null;
-
 };
 
 Shop.prototype = {
-
 	create : function() {
 		this.items = new Array();
 		this.itemCapacity = 10;
@@ -38,8 +35,6 @@ Shop.prototype = {
 	getItemLength : function() {
 		return this.items.length;
 	}
-
-
 }
 
 
