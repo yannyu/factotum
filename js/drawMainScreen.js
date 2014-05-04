@@ -1,5 +1,6 @@
 function drawMainScreen() {
 
+<<<<<<< HEAD
 
 	var MapButton, InventoryButton, NPCButton;
 	MapButton = game.add.button(100, 200, 'button', OpenMap, this)
@@ -18,6 +19,11 @@ function OpenMap() {
 
 function OpenInventoryScreen() {
 	drawInventoryButton();
+=======
+	//drawMapButton();
+	accessInventory();
+	//drawNPCButton();
+>>>>>>> ca8cecf482688570661cdc2bb9460edcd2c0aba0
 }
 
 function OpenNPCScreen() {
