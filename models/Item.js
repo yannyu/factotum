@@ -1,3 +1,5 @@
+//Owner: Dennis
+
 Item = function () {
 	this.type = "default_type"
     this.prefix = "default_prefix"
@@ -15,6 +17,5 @@ Item.prototype = {
 	    this.prefix = random_item_prefixes[game.rnd.integerInRange(0,random_item_prefixes.length-1)];
 	    this.suffix = random_item_suffixes[game.rnd.integerInRange(0,random_item_suffixes.length-1)];
 	}
-
 
 };

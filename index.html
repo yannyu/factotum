@@ -6,16 +6,26 @@
         <script src="js/phaser.min.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="models/NPC.js"></script>
-        <script type="text/javascript" src="models/Item.js"></script>
+        
         <script type="text/javascript" src="js/drawMainScreen.js"></script>
         <script type="text/javascript" src="js/drawShop.js"></script>
         <script type="text/javascript" src="js/drawEntities.js"></script>
         <script type="text/javascript" src="js/drawButtons.js"></script>
+        
+        <!--Inventory-->
         <script type="text/javascript" src="js/accessInventory.js"></script>
+<<<<<<< Updated upstream
         <script type="text/javascript" src="js/drawNPCScreen.js"></script>
         <script type="text/javascript" src="js/drawNPCScreenButtons.js"></script>
+=======
+        <script type="text/javascript" src="js/inventory/drawInventory.js"></script>
+
+        
+        <script type="text/javascript" src="models/Item.js"></script>        
+>>>>>>> Stashed changes
         <script type="text/javascript" src="models/Shop.js"></script>
         <script type="text/javascript" src="models/Resource.js"></script>
+
         <script type="text/javascript" src="controllers/entityManagement.js"></script>
     </head>
     <body>
@@ -35,9 +45,7 @@
         function preload() {
 
             game.load.spritesheet('button', 'assets/buttons/newChar.jpg', 70, 120);
-            game.load.spritesheet('MapButton', 'assets/buttons/mapButton.jpg', 70, 120);
-            game.load.spritesheet('NPCButton', 'assets/buttons/NPCButton.jpg', 70,120);
-            game.load.spritesheet('InventoryButton', 'assets/buttons/InventoryButton.jpg', 70, 120);
+            
 
             game.state.start('MainScreenStateName');
         }
@@ -57,12 +65,20 @@
         //game.state.add('MainScreenStateThing', MainScreenState);
         var mainScreenState = {
             preload: function() {
+<<<<<<< Updated upstream
 
             game.load.spritesheet('button', 'assets/buttons/newChar.jpg', 70, 120);
             game.load.spritesheet('MapButton', 'assets/buttons/mapButton.jpg', 70, 120);
             game.load.spritesheet('NPCButton', 'assets/buttons/NPCButton.jpg', 70,120);
             game.load.spritesheet('InventoryButton', 'assets/buttons/InventoryButton.jpg', 70, 120);
         },
+=======
+                game.load.spritesheet('MapButton', 'assets/buttons/mapButton.jpg', 70, 120);
+                game.load.spritesheet('NPCButton', 'assets/buttons/NPCButton.jpg', 70,120);
+                game.load.spritesheet('InventoryButton', 'assets/buttons/InventoryButton.jpg', 70, 120);
+            },
+
+>>>>>>> Stashed changes
             create: function() {
                 game.stage.backgroundColor = '#454645';
                 var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
