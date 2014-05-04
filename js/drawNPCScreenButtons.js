@@ -2,12 +2,16 @@ function drawNPCScreenButtons(){
 	var newCharacterButton;
 	newCharacterButton = game.add.button(600, 400, 'button', newNPC, this)
 	newCharacterButton.name = 'newCharbtn'
-	var transferItemButton;
-	transferItemButton = game.add.button(500, 400, 'dummy', transferItem, this)
-	transferItemButton.name = 'transferItembtn'
+	var returnToMainScreenButton;
+	returnToMainScreenButton = game.add.button(600, 100, 'butt', returnToMainScreen, this)
+	returnToMainScreenButton.name = 'returnToMainScreenBtn'
 }
 
 function newNPC() {
-	npcs[0].randomize();
-    textDisplays[0].setText(npcs[0].getInfo());
+	global_npcs[0].randomize();
+    global_textDisplays[0].setText(global_npcs[0].getInfo());
+}
+
+function returnToMainScreen() {
+	game.state.start('MainScreenStateName');
 }
