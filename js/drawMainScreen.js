@@ -1,5 +1,4 @@
 function drawMainScreen() {
-
 	var MapButton, InventoryButton, NPCButton;
 	MapButton = game.add.button(100, 200, 'MapButton', OpenMap, this)
 	MapButton.name = 'MapButton';
@@ -18,8 +17,9 @@ function OpenInventoryScreen() {
 	//drawMapButton();
 	//drawMainScreen.MapButton.kill();
 	//console.log(game.drawMainScreen.MapButton());
-	accessInventory();
+	//accessInventory();
 	//drawNPCButton();
+	game.state.start('InventoryScreenStateThing');
 }
 
 function OpenNPCScreen() {

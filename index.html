@@ -27,8 +27,7 @@
         var entityItems = Array();
         var textDisplays = Array();
 
-
-        var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, update: update });
+        var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload});
 
         function preload() {
 
@@ -37,6 +36,7 @@
             game.load.spritesheet('NPCButton', 'assets/buttons/NPCButton.jpg', 70,120);
             game.load.spritesheet('InventoryButton', 'assets/buttons/InventoryButton.jpg', 70, 120);
 
+            game.state.start('MainScreenStateThing');
         }
 
         function create() {
@@ -49,6 +49,27 @@
 
         function update() {
         }
+
+        //var MainScreenState = function(game) { create: create };
+        //game.state.add('MainScreenStateThing', MainScreenState);
+        var mainScreenState = {
+            create: function() {
+                game.stage.backgroundColor = '#454645';
+                var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
+                drawMainScreen();
+            }
+        }
+        game.state.add('MainScreenStateThing', mainScreenState);
+
+        var inventoryScreenState = {
+            create: function() {
+                game.stage.backgroundColor = '#454645';
+                var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
+                accessInventory();
+            }
+        }
+        game.state.add('InventoryScreenStateThing', inventoryScreenState);
+
 
         </script>
 
