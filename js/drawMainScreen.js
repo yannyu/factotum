@@ -7,7 +7,6 @@ function drawMainScreen() {
 	InventoryButton.name = 'transferItembtn'
 	NPCButton = game.add.button(500, 200, 'NPCButton', OpenNPCScreen, this)
 	NPCButton.name = 'NPCScreen';
-
 }
 
 
@@ -17,6 +16,8 @@ function OpenMap() {
 
 function OpenInventoryScreen() {
 	//drawMapButton();
+	//drawMainScreen.MapButton.kill();
+	//console.log(game.drawMainScreen.MapButton());
 	accessInventory();
 	//drawNPCButton();
 }

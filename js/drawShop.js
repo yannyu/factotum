@@ -1,5 +1,4 @@
 function drawShop() {
-	playerShop = new Shop();
 	playerShop.create();
 	playerShop.populate();
     textDisplays[2] = game.add.text(32, 210, 'None');
