@@ -12,6 +12,8 @@
         <script type="text/javascript" src="js/drawEntities.js"></script>
         <script type="text/javascript" src="js/drawButtons.js"></script>
         <script type="text/javascript" src="js/accessInventory.js"></script>
+        <script type="text/javascript" src="js/drawNPCScreen.js"></script>
+        <script type="text/javascript" src="js/drawNPCScreenButtons.js"></script>
         <script type="text/javascript" src="models/Shop.js"></script>
         <script type="text/javascript" src="models/Resource.js"></script>
         <script type="text/javascript" src="controllers/entityManagement.js"></script>
@@ -24,6 +26,7 @@
 
         var playerShop = new Shop();
         var npcs = Array();
+        npcs[0] = new Npc();
         var entityItems = Array();
         var textDisplays = Array();
 
@@ -53,6 +56,13 @@
         //var MainScreenState = function(game) { create: create };
         //game.state.add('MainScreenStateThing', MainScreenState);
         var mainScreenState = {
+            preload: function() {
+
+            game.load.spritesheet('button', 'assets/buttons/newChar.jpg', 70, 120);
+            game.load.spritesheet('MapButton', 'assets/buttons/mapButton.jpg', 70, 120);
+            game.load.spritesheet('NPCButton', 'assets/buttons/NPCButton.jpg', 70,120);
+            game.load.spritesheet('InventoryButton', 'assets/buttons/InventoryButton.jpg', 70, 120);
+        },
             create: function() {
                 game.stage.backgroundColor = '#454645';
                 var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
@@ -83,7 +93,7 @@
             create: function() {
                 game.stage.backgroundColor = '#454645';
                 var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
-                //some function
+                drawNPCScreen();
             }
         }
         game.state.add('NPCScreenStateName', NPCScreenState);
