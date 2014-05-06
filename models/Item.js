@@ -1,12 +1,22 @@
 //Owner: Dennis
 
 Item = function () {
-	this.type = "default_type"
-    this.prefix = "default_prefix"
-    this.suffix = "default_suffix"
+	this.type = null;
+    this.prefix = null;
+    this.suffix = null;
 };
 
+random_item_types = ['Weapon', 'Armor', 'Accessory'];
+random_item_prefixes = ['Excellent', 'Good', 'Janky'];
+random_item_suffixes = ['of Yann', 'of Dennis', 'of Adam'];
+
 Item.prototype = {
+
+	create : function() {
+		this.type = '';
+		this.prefix = '';
+    	this.suffix = '';
+	},
 	
 	getInfo : function() {
 	    return this.prefix+' '+this.type+' '+this.suffix;

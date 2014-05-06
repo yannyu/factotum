@@ -1,3 +1,4 @@
+//Owner: Yann
 Npc = function() {
     this.name = "default_name";
     this.class = "default_class";
@@ -9,11 +10,7 @@ Npc = function() {
     random_npc_names = ["Andy", "Bobby", "Christina", "Dennis", "Elise", "Frances"];
     random_npc_class = ["Fighter", "Spellcaster", "Healer", "Runner"];
     random_npc_race = ["Human", "Elf", "Orc", "Goblin", "Dwarf"];
-    random_npc_locations = ["In town", "In transit", "In the Cursed Mines", "In the Shrine of Beasts", "In the Misty Woods"]
-
-    random_item_types = ["Axe", "Balloon", "Claw Hammer", "Dao", "Epee", "Fuschina", "Gauche"];
-    random_item_prefixes = ["Shiny", "Dull", "Stupid", "Clever", "Useless", "Utile"];
-    random_item_suffixes = ["of Fire", "of Ice", "of Bludgeoning", "of Anger", "of the Elements"]
+    random_npc_locations = ["In town", "In transit", "In the Cursed Mines", "In the Shrine of Beasts", "In the Misty Woods"];
 
 Npc.prototype = {
     getInfo : function() {
