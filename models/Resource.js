@@ -18,6 +18,21 @@ Resource.prototype = {
 
 	//this creates a Resource
 	create : function() {
+		this.material = '';
+		this.name = '';
+		this.tier = '';
+		this.power = '';
+
+	},
+
+	getInfo : function() {
+		return this.name + ': Type ['
+			+ this.material + '] Tier '
+			+ this.tier + ' Power '
+			+ this.power 
+	},
+
+	randomize : function() {
 		this.material = materialNames[game.rnd.integerInRange(0, materialNames.length-1)];
 
 		switch(this.material){
@@ -37,11 +52,4 @@ Resource.prototype = {
 		this.power = game.rnd.integerInRange(1, maxPower);
 
 	},
-
-	getInfo : function() {
-		return this.material + '\n'
-			+ this.material + '\n'
-			+ this.tier + '\n'
-			+ this.power 
-	}
 };
