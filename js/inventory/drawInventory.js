@@ -27,6 +27,8 @@ function drawInventoryTextBoxes() {
 
 function drawResourceTextBoxes() {
 	clearTextBoxes();
+	generateAllResources();
+	/*
 	if (global_playerShop.shopInventory.inventoryResources.length == 0) {
 		textDisplays[0] = game.add.text(32, 100, 'As empty as your love life');
 	}
@@ -34,7 +36,10 @@ function drawResourceTextBoxes() {
 		for (var i = 0; i <= global_playerShop.shopInventory.inventoryResources.length - 1; i++) {
 			textDisplays[i] = game.add.text( 32, ( 100 + (i * 30) ), i.toString() + '. ' + global_playerShop.shopInventory.inventoryResources[i].getInfo() );
 		};
-	}
+	}*/
+	for (var i = 0; i <= woodResources.length - 1; i++) {
+			textDisplays[i] = game.add.text( 32, ( 100 + (i * 30) ), i.toString() + '. ' + woodResources[i].getInfo() );
+		};
 }
 
 function drawSkillTextBoxes() {	

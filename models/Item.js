@@ -4,6 +4,8 @@ Item = function () {
 	this.type = null;
     this.prefix = null;
     this.suffix = null;
+
+    this.resource = null;
 };
 
 random_item_types = ['Weapon', 'Armor', 'Accessory'];
@@ -16,6 +18,7 @@ Item.prototype = {
 		this.type = '';
 		this.prefix = '';
     	this.suffix = '';
+    	this.resource = '';
 	},
 	
 	getInfo : function() {
