@@ -1,6 +1,6 @@
 function drawNPCScreenButtons(){
 	var newCharacterButton;
-	newCharacterButton = game.add.button(600, 400, 'button', newNPC, this)
+	newCharacterButton = game.add.button(600, 400, 'button', randomizeNPCs, this)
 	newCharacterButton.name = 'newCharbtn'
 	var returnToMainScreenButton;
 	returnToMainScreenButton = game.add.button(750, 25, 'butt', returnToMainScreen, this)
@@ -14,7 +14,7 @@ function drawNPCScreenButtons(){
 
 }
 
-function newNPC() {
+function randomizeNPCs() {
 	for (i = 0; i < global_npcs.length; i++) {
 		global_npcs[i].randomize();
    	    global_textDisplays[i].setText(global_npcs[i].getInfo());
