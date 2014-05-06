@@ -79,6 +79,14 @@
         game.state.add('MainScreenStateName', mainScreenState);
 
         var inventoryScreenState = {
+
+            preload: function() {
+
+            game.load.spritesheet('showSkillsButtonImage', 'assets/buttons/showSkillsButtonImage.png', 91, 40);
+            game.load.spritesheet('showResourcesButtonImage', 'assets/buttons/showResourcesButtonImage.png', 142, 39);
+            game.load.spritesheet('showShopButtonImage', 'assets/buttons/showShopButtonImage.png', 90, 40);
+            game.load.spritesheet('showInventoryButtonImage', 'assets/buttons/showInventoryButtonImage.png', 137, 39);
+        },
             create: function() {
                 game.stage.backgroundColor = '#454645';
                 var style = { font: "14px Arial", fill: "#ff0044", align: "center" };
