@@ -81,10 +81,12 @@
         var inventoryScreenState = {
 
             preload: function() {
-
+            game.load.spritesheet('image_spritesheet', 'assets/images/items-1.jpg', 64, 64);
+            //these should be game.load.image, this is why you had the resizing issue
             game.load.spritesheet('showSkillsButtonImage', 'assets/buttons/showSkillsButtonImage.png', 91, 40);
             game.load.spritesheet('showResourcesButtonImage', 'assets/buttons/showResourcesButtonImage.png', 142, 39);
             game.load.spritesheet('showShopButtonImage', 'assets/buttons/showShopButtonImage.png', 90, 40);
+            game.load.spritesheet('showInventoryButtonImage', 'assets/buttons/showInventoryButtonImage.png', 137, 39);
             game.load.spritesheet('showInventoryButtonImage', 'assets/buttons/showInventoryButtonImage.png', 137, 39);
         },
             create: function() {
