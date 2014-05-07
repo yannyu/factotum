@@ -39,12 +39,13 @@ function drawInventoryTextBoxes() {
 
 function drawResourceTextBoxes() {
 	clearIcons();
-	generateAllResources();
 
-
-	for (var i = 0; i <= woodResources.length - 1; i++) {
-		r = iconDisplays.create(32, ( 100 + ((i * 64)) + (i * 2) ), 'image_spritesheet', 27);
-		r.name = woodResources[i].getInfo();
+	for (var i = 0; i <= global_playerShop.shopInventory.inventoryResources.length - 1; i++) {
+		x = ( 64 * ( i % 4 ) ) + 2;
+		y = ( 64 * Math.floor( i / 4 ) ) + 2;
+		r = iconDisplays.create( 32 + x, 100 + y, 'image_spritesheet', global_playerShop.shopInventory.inventoryResources[i].spritesheetRef);
+		r.name = global_playerShop.shopInventory.inventoryResources[i].getInfo();
+		console.log(r.name);
 		r.inputEnabled = true;
 		r.input.enableDrag();
 		r.events.onInputOver.add(saySomething, this);
@@ -119,6 +120,7 @@ function generateDebugInventory() {
 
 function generateDebugResources() {
 	clearIcons();
+	//generateAllResources();
 	global_playerShop.shopInventory.populateInventoryResources(5);
 	drawResourceTextBoxes();
 }

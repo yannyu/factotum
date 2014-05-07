@@ -24,7 +24,7 @@ Inventory.prototype = {
 	},
 	populateInventoryResources : function(numItems) {
 		//nuke existing items
-		this.inventoryItems = [];
+		this.inventoryResources = [];
 		//create numItems new items
 		for (var i = numItems - 1; i >= 0; i--) {
 			resource = new Resource();
