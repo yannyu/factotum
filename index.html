@@ -12,10 +12,12 @@
         <script type="text/javascript" src="js/drawButtons.js"></script>
         
         <!--Inventory-->
-        <script type="text/javascript" src="js/accessInventory.js"></script>
+        <script type="text/javascript" src="js/inventory/drawInventory.js"></script>
+        <script type="text/javascript" src="js/inventory/accessInventory.js"></script>
+
         <script type="text/javascript" src="js/drawNPCScreen.js"></script>
         <script type="text/javascript" src="js/drawNPCScreenButtons.js"></script>
-        <script type="text/javascript" src="js/inventory/drawInventory.js"></script>
+        
 
         
         <script type="text/javascript" src="models/Item.js"></script>
@@ -37,7 +39,9 @@
         var global_entityItems = Array();
         var global_textDisplays = Array();
 
+
         var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload});
+        generateAllResources();
 
         function preload() {
 

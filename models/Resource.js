@@ -60,7 +60,7 @@ Resource.prototype = {
 				this.name = "Your naming funcition is broken: Check Resource.js: create";
 		}
 		this.tier = game.rnd.integerInRange(1, maxTier);
-		this.power = game.rnd.realInRange(1, maxPower);
+		this.power =Math.round(game.rnd.realInRange(1, maxPower) + this.tier);
 
 	},
 	

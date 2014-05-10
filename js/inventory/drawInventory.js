@@ -17,24 +17,23 @@ function replaceItemStats(text) {
 //clears the textBoxes array
 function clearIcons() {
 	iconDisplays.removeAll();
-	/*
-	for (var i = 0; i <= iconDisplays.length - 1; i++) {
-			iconDisplays[i].setText('');
-		};
-	textBoxes = [];*/
 }
 
 //iterates through shop inventory and lists all items
 function drawInventoryTextBoxes() {	
 	clearIcons();
-	if (global_playerShop.shopInventory.inventoryItems.length == 0) {
-		//iconDisplays[0] = game.add.text(32, 100, 'As empty as your love life');
-	}
-	else {
-		for (var i = 0; i <= global_playerShop.shopInventory.inventoryItems.length - 1; i++) {
-			iconDisplays[i] = game.add.text( 32, ( 100 + (i * 64) ), i.toString() + '. ' + global_playerShop.shopInventory.inventoryItems[i].getInfo() );
-		};
-	}
+
+	for (var i = 0; i <= global_playerShop.shopInventory.inventoryItems.length - 1; i++) {
+		x = ( 64 * ( i % 4 ) ) + 2;
+		y = ( 64 * Math.floor( i / 4 ) ) + 2;
+		r = iconDisplays.create( 32 + x, 100 + y, 'image_spritesheet', global_playerShop.shopInventory.inventoryItems[i].spritesheetRef);
+		r.name = global_playerShop.shopInventory.inventoryItems[i].getInfo();
+		r.invSpot = i;
+		r.inputEnabled = true;
+		r.input.enableDrag();
+		r.events.onInputOver.add(displayInfo, this);
+	};
+
 }
 
 function drawResourceTextBoxes() {
@@ -45,36 +44,22 @@ function drawResourceTextBoxes() {
 		y = ( 64 * Math.floor( i / 4 ) ) + 2;
 		r = iconDisplays.create( 32 + x, 100 + y, 'image_spritesheet', global_playerShop.shopInventory.inventoryResources[i].spritesheetRef);
 		r.name = global_playerShop.shopInventory.inventoryResources[i].getInfo();
-		console.log(r.name);
+
 		r.inputEnabled = true;
 		r.input.enableDrag();
-		r.events.onInputOver.add(saySomething, this);
-		//r.events.onInputOver.add(replaceItemStats(woodResources[i].getInfo(), this));
+		r.events.onInputOver.add(displayInfo, this);
 	};
 }
 
 function drawSkillTextBoxes() {	
 	clearIcons();
-	if (global_playerShop.shopInventory.inventoryItems.length == 0) {
-		//iconDisplays[0] = game.add.text(32, 100, 'As empty as your love life');
-	}
-	else {
-		for (var i = 0; i <= global_playerShop.shopInventory.inventoryItems.length - 1; i++) {
-			//iconDisplays[i] = game.add.text( 32, ( 100 + (i * 30) ), i.toString() + '. ' + global_playerShop.shopInventory.inventoryItems[i].getInfo() );
-		};
-	}
+	//TODO: Skills!
 }
 
 function drawShopTextBoxes() {
 	clearIcons();
-	if (global_playerShop.shopInventory.inventoryItems.length == 0) {
-		iconDisplays[0] = game.add.text(32, 100, 'As empty as your love life');
-	}
-	else {
-		for (var i = 0; i <= global_playerShop.shopInventory.inventoryItems.length - 1; i++) {
-			//iconDisplays[i] = game.add.text( 32, ( 100 + (i * 30) ), i.toString() + '. ' + global_playerShop.shopInventory.inventoryItems[i].getInfo() );
-		};
-	}
+	//TODO: Shop enhancements
+
 }
 
 
@@ -125,8 +110,8 @@ function generateDebugResources() {
 	drawResourceTextBoxes();
 }
 
-function saySomething(r, pointer) {
-	//index = parseInt(r.name.slice(-1));
+function displayInfo(r, pointer) {
 	replaceItemStats(r.name);
-	console.log(r.name);
+	//DEBUG!!!
+	console.log(global_playerShop.shopInventory.inventoryItems[r.invSpot].debugInfo());
 }
