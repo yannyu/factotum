@@ -7,7 +7,7 @@ Equipment = function() {
 	this.displays = null;
 };
 
-Shop.prototype = {
+Equipment.prototype = {
 	create : function() {
 		this.forge = 0;
 		this.anvil = 0;

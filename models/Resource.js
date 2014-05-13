@@ -63,6 +63,16 @@ Resource.prototype = {
 		this.power =Math.round(game.rnd.realInRange(1, maxPower) + this.tier);
 
 	},
+
+	debugInfo : function() {
+		return this.name +' : '+
+		this.material +' : '+
+    	this.tier +' : '+
+    	this.dungeon +' : '+
+    	this.power +' : '+
+    	this.spritesheetRef;
+	}
+
 	
 };
 
@@ -127,5 +137,6 @@ function generateAllResources () {
 			}
 
 		}
+
 	}
 };

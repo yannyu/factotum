@@ -1,9 +1,10 @@
 function drawInventory() {
 	clearIcons();
-	drawInventoryTextBoxes();
+	
 	drawMainButtons();
 	itemStats = game.add.text(32, (game.height - 100), '');
 	defaultText();
+	drawInventoryTextBoxes();
 }
 
 function defaultText() {

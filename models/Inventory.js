@@ -6,6 +6,7 @@ Inventory = function () {
 
 Inventory.prototype = {
 	create : function() {
+		//inventory arrays
 		this.inventoryItems = Array();
 		this.inventoryResources = Array();
 	},
