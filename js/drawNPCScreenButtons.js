@@ -16,7 +16,7 @@ function drawNPCScreenButtons(){
 
 function randomizeNPCs() {
 	for (i = 0; i < global_npcs.length; i++) {
-		global_npcs[i].randomize();
+		global_npcs[i].tickNpcMovement();
    	    global_textDisplays[i].setText(global_npcs[i].getInfo());
 	}
 }
@@ -28,7 +28,7 @@ function returnToMainScreen() {
 function addNPC() {
 	global_npcs.push(new Npc());
 	global_npcs[global_npcs.length-1].create();
-	global_textDisplays[global_npcs.length-1] = game.add.text(32, 30+(global_npcs.length-1)*70,global_npcs[global_npcs.length-1].getInfo());
+	global_textDisplays[global_npcs.length-1] = game.add.text(32, 30+(global_npcs.length-1)*100,global_npcs[global_npcs.length-1].getInfo());
 }
 
 function killRandomNPC() {
