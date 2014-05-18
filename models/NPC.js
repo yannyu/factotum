@@ -18,12 +18,14 @@ Npc = function() {
 Npc.prototype = {
     getInfo : function() {
         temp_text = this.name + ', the ' + this.race + ' ' + this.class +  ' with ' + this.backpack.inventoryItems.length + ' items';
-        temp_text += '\nCurrently in: ' + this.location;
         if (this.turnsFromDestination == 0) {
+            temp_text += '\nCurrently in: ' + this.location;
             temp_text += '\nJust hanging out';
         } else if (this.destination == this.location) {
-            temp_text += '\nCurrently exploring ' + this.destination + ', ETA: ' + this.turnsFromDestination + ' turns';
+            temp_text += '\nCurrently in: ' + this.location;
+            temp_text += '\nExploring ' + this.destination + ', ETA: ' + this.turnsFromDestination + ' turns';
         } else {
+            temp_text += '\nCurrently in transit from: ' + this.location;
             temp_text += '\nHeading to ' + this.destination + ', ETA: ' + this.turnsFromDestination + ' turns';
         }
         return temp_text;
@@ -50,13 +52,22 @@ Npc.prototype = {
     },
 
     tickNpcMovement : function() {
-        if (this.turnsFromDestination == 0) {
-            if (game.rnd.integerInRange(0,1)) {
+        if (this.turnsFromDestination == 0) { //If NPC isn't in transit, he may get a new destination
+            if (game.rnd.integerInRange(0,1)) { //50% chance for NPC to select a new destination
                 this.destination = random_npc_locations[game.rnd.integerInRange(0,random_npc_locations.length-1)];
                 this.turnsFromDestination = game.rnd.integerInRange(3,8);
-            }
-        } else {
+            } 
+        } else { //Otherwise, NPC moves 1 turn closer to destination
             this.turnsFromDestination--;
+            if (this.turnsFromDestination == 0 && this.location == this.destination) {
+                if (game.rnd.integerInRange(0,1)) { //50% chance for NPC to get a new item
+                    temp_item = new Item();
+                    temp_item.create();
+                    temp_item.randomize();
+                    this.backpack.inventoryItems.push(temp_item);
+                    console.log(this.name + ' the ' + this.race +' '+ this.class + ' found a ' + temp_item.getInfo())
+                } 
+            }
         }
     },
 
