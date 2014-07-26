@@ -3,16 +3,29 @@ function drawInventory() {
 	
 	drawMainButtons();
 	itemStats = game.add.text(32, (game.height - 100), '');
+	headerText = game.add.text(32, 70, '');
 	defaultText();
 	drawInventoryTextBoxes();
 }
 
 function defaultText() {
-	replaceItemStats('Mouse over items');
+	setItemStats('Mouse over items');
 }
 
-function replaceItemStats(text) {
+function setItemStats(text) {
 	itemStats.setText(text);
+}
+
+function clearItemStats() {
+	itemStats.setText('');
+}
+
+function setHeaderText(text) {
+	headerText.setText(text);
+}
+
+function clearHeaderText() {
+	headerText.setText('');
 }
 
 //clears the textBoxes array
@@ -20,9 +33,17 @@ function clearIcons() {
 	iconDisplays.removeAll();
 }
 
+//call all clear functions
+function clearScreen(){
+	clearIcons();
+	clearHeaderText();
+	clearItemStats();
+}
+
 //iterates through shop inventory and lists all items
 function drawInventoryTextBoxes() {	
-	clearIcons();
+	clearScreen();	
+	setHeaderText('Inventory');
 
 	for (var i = 0; i <= global_playerShop.shopInventory.inventoryItems.length - 1; i++) {
 		x = ( 64 * ( i % 4 ) ) + 2;
@@ -38,7 +59,8 @@ function drawInventoryTextBoxes() {
 }
 
 function drawResourceTextBoxes() {
-	clearIcons();
+	clearScreen();
+	setHeaderText('Resources');
 
 	for (var i = 0; i <= global_playerShop.shopInventory.inventoryResources.length - 1; i++) {
 		x = ( 64 * ( i % 4 ) ) + 2;
@@ -53,13 +75,52 @@ function drawResourceTextBoxes() {
 }
 
 function drawSkillTextBoxes() {	
-	clearIcons();
-	//TODO: Skills!
+	clearScreen();
+	setHeaderText('Skills');
+
 }
 
 function drawShopTextBoxes() {
-	clearIcons();
-	//TODO: Shop enhancements
+	clearScreen();
+	setHeaderText('Shop');
+	//anvil
+	for (var i = 0; i <= 4; i++) {
+		x = ( 64 * i ) + 2;
+		r = iconDisplays.create( 32 + x, 100 + (64 * 0), 'image_spritesheet', (16*1)+i);
+		r.name = 'anvil_'+i;
+
+		r.inputEnabled = true;
+		r.events.onInputOver.add(displayInfo, this);
+	}
+	//forge
+	for (var i = 0; i <= 4; i++) {
+		x = ( 64 * i ) + 2;
+		r = iconDisplays.create( 32 + x, 100 + (64 * 1) + 32 , 'image_spritesheet', (16*4)+i);
+		r.name = 'forge_'+i;
+
+		r.inputEnabled = true;
+		r.events.onInputOver.add(displayInfo, this);
+	}
+	//distiller
+	for (var i = 0; i <= 4; i++) {
+		x = ( 64 * i ) + 2;
+		r = iconDisplays.create( 32 + x, 100 + (64 * 2) + (32 * 2) , 'image_spritesheet', (16*8)+i);
+		r.name = 'distiller_'+i;
+
+		r.inputEnabled = true;
+		r.events.onInputOver.add(displayInfo, this);
+	}
+
+	//display
+	for (var i = 0; i <= 4; i++) {
+		x = ( 64 * i ) + 2;
+		r = iconDisplays.create( 32 + x, 100 + (64 * 3) + (32 * 3) , 'image_spritesheet', (16*15)+i);
+		r.name = 'display_'+i;
+
+		r.inputEnabled = true;
+		r.events.onInputOver.add(displayInfo, this);
+	}
+
 
 }
 
@@ -112,7 +173,7 @@ function generateDebugResources() {
 }
 
 function displayInfo(r, pointer) {
-	replaceItemStats(r.name);
+	setItemStats(r.name);
 	//DEBUG!!!
 	console.log(global_playerShop.shopInventory.inventoryItems[r.invSpot].debugInfo());
 }
